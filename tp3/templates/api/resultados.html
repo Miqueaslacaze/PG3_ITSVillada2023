@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de la Búsqueda</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Resultados de la Búsqueda</h1>
+        <table class="table table-bordered table-hover table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Centroide Latitud</th>
+                    <th>Centroide Longitud</th>
+                    <th>Población</th>
+                    <th>Superficie (km²)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for provincia in provincias %}
+                <tr>
+                    <td>{{ provincia.id }}</td>
+                    <td>{{ provincia.nombre }}</td>
+                    <td>{{ provincia.centroide.lat }}</td>
+                    <td>{{ provincia.centroide.lon }}</td>
+                    <td>{{ provincia.poblacion }}</td>
+                    <td>{{ provincia.superficie }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="text-center">
+            <a href="{% url 'index' %}" class="btn btn-secondary mt-3">Nueva Búsqueda</a>
+        </div>
+    </div>
+</body>
+</html>
